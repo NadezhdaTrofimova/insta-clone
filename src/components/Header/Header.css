@@ -1,0 +1,33 @@
+.header {
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    max-width: 375px;
+    z-index: 5;
+}
+
+.header__content {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__id-profile {
+    font-size: 20px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+}
+
+.header__button {
+    width: 24px;
+    height: 24px;
+}
+
+.header__button-add-card {
+    background: no-repeat center/24px url("../../images/icon/icon-plus.svg");
+    margin-right: 10px;
+}
+
+.header__button-menu {
+    background: no-repeat center/24px url("../../images/icon/icon-menu.svg");
+}
