@@ -2,6 +2,7 @@ import React from "react";
 import './App.css';
 import MyAccount from "./components/MyAccount/MyAccount";
 import * as api from './api/api'
+import PublicationsItem from "./components/Publications/PublicationsItem/PublicationsItem";
 
 
 
@@ -26,7 +27,8 @@ function App() {
     }, [])
 
     return (
-        <MyAccount userId={userId}/>
+        // <MyAccount userId={userId}/>
+        <PublicationsItem/>
     );
 }
 
