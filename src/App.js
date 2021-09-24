@@ -1,8 +1,8 @@
 import React from "react";
 import './App.css';
-import MyAccount from "./components/MyAccount/MyAccount";
-import * as api from './api/api'
-import PublicationsItem from "./components/Publications/PublicationsItem/PublicationsItem";
+import MyAccount from "./components/pages/MyAccount/MyAccount";
+import * as api from './utils/api'
+import Publications from "./components/pages/Publications/Publications";
 
 
 
@@ -28,7 +28,7 @@ function App() {
 
     return (
         // <MyAccount userId={userId}/>
-        <PublicationsItem/>
+        <Publications/>
     );
 }
 

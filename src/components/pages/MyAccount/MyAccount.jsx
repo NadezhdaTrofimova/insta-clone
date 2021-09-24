@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../Header/Header";
-import Profile from "../Profile/Profile";
-import CardList from "../CardList/CardList";
+import Header from "../../../common/Header/Header";
+import Profile from "./Profile/Profile";
+import CardList from "./CardList/CardList";
 
-import * as api from '../../api/api';
+import * as api from '../../../utils/api';
 
 const MyAccount = ({userId}) => {
 

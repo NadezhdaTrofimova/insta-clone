@@ -1,5 +1,5 @@
 import './CardList.css'
-import CardItem from "../CardItem/CardItem";
+import CardItem from "./CardItem/CardItem";
 
 const CardList = ({cards}) => {
     return (
