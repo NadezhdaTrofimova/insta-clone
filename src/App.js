@@ -1,9 +1,9 @@
 import React from "react";
 import './App.css';
-import MyAccount from "./components/pages/MyAccount/MyAccount";
+import {Route, Switch} from "react-router-dom";
 import * as api from './utils/api'
 import Publications from "./components/pages/Publications/Publications";
-
+import MyAccount from "./components/pages/MyAccount/MyAccount";
 
 
 function App() {
@@ -27,8 +27,15 @@ function App() {
     }, [])
 
     return (
-        // <MyAccount userId={userId}/>
-        <Publications/>
+        <Switch>
+            <Route exact path='/'>
+                <MyAccount userId={userId}/>
+            </Route>
+            <Route path='/publications'>
+                <Publications/>
+            </Route>
+        </Switch>
+
     );
 }
 

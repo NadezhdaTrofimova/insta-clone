@@ -1,12 +1,13 @@
 import './CardItem.css'
 
-const CardItem = ({card}) => {
+const CardItem = ({card, onOpenCard}) => {
     return (
         <li className='photo-cards__item-list'>
             <img
                 className='photo-cards__item-image'
                 src={card.link}
-                alt="изображение"/>
+                alt="изображение"
+                onClick={onOpenCard}/>
         </li>
     );
 }
