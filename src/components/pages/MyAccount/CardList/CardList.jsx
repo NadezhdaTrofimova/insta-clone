@@ -4,13 +4,13 @@ import './CardList.css'
 import CardItem from "./CardItem/CardItem";
 
 
-const CardList = ({cards}) => {
+const CardList = ({cards, userProfile}) => {
 
     const history = useHistory();
 
 
     const handleOpenCard = (url) => {
-        history.push('/publications')
+        history.push(url, { cards, userProfile })
     }
 
     return (

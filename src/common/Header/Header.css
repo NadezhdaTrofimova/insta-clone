@@ -31,3 +31,32 @@
 .header__button-menu {
     background: no-repeat center/24px url("../../images/icon/icon-menu.svg");
 }
+
+.header__publications-id-profile {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(95, 93, 93, 0.7);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.header__publications-title {
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.header__publications-button {
+    top: 50%;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: no-repeat center/20px url('../../images/icon/icon-left-arrow.svg');
+    transform: translate(0, -50%);
+}
+
+.header__publications-button {
+    padding: 5px 10px;
+}

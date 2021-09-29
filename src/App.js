@@ -4,6 +4,7 @@ import {Route, Switch} from "react-router-dom";
 import * as api from './utils/api'
 import Publications from "./components/pages/Publications/Publications";
 import MyAccount from "./components/pages/MyAccount/MyAccount";
+import SubscribersItem from "./components/pages/Subscribers/SubscribersItem/SubscribersItem";
 
 
 function App() {
@@ -34,6 +35,14 @@ function App() {
             <Route path='/publications'>
                 <Publications/>
             </Route>
+            <Route path='/subscribers'>
+                <>
+                    <SubscribersItem/>
+                    <SubscribersItem/>
+                    <SubscribersItem/>
+                </>
+            </Route>
+
         </Switch>
 
     );

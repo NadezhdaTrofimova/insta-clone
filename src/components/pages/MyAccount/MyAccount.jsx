@@ -31,9 +31,14 @@ const MyAccount = ({userId}) => {
 
     return (
         <>
-            <Header userProfile={userProfile}/>
-            <Profile userProfile={userProfile}/>
+            <Header
+                userProfile={userProfile}
+            />
+            <Profile
+                userProfile={userProfile}
+            />
             <CardList
+                userProfile={userProfile}
                 cards={cards}
             />
         </>

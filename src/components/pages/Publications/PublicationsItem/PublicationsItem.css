@@ -29,9 +29,9 @@
 .publications__button-action-menu {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 10px;
     transform: translate(0, -50%);
-    background: no-repeat center/24px url('../../../../images/icon/icon-three-dots.svg');
+    background: no-repeat center/20px url('../../../../images/icon/icon-three-dots.svg');
 }
 
 .publications__link-location {
@@ -49,26 +49,27 @@
 
 
 .publications__button {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+    width: 20px;
+    height: 20px;
 }
 
 .publications__button-like {
-    background: no-repeat center/24px url('../../../../images/icon/icon-like.svg');
+    background: no-repeat center/20px url('../../../../images/icon/icon-like.svg');
+    margin-right: 5px;
 }
 
 .publications__button-comment {
-    background: no-repeat center/24px url('../../../../images/icon/icon-message.svg');
+    background: no-repeat center/20px url('../../../../images/icon/icon-message.svg');
+    margin-right: 5px;
 }
 
 .publications__button-send {
-    background: no-repeat center/24px url('../../../../images/icon/icon-paper-plane.svg');
+    background: no-repeat center/20px url('../../../../images/icon/icon-paper-plane.svg');
     margin-right: 0;
 }
 
 .publications__button-notes {
-    background: no-repeat center/24px url('../../../../images/icon/icon-save.svg');
+    background: no-repeat center/20px url('../../../../images/icon/icon-save.svg');
     margin-right: 0;
 }
 
@@ -78,4 +79,13 @@
 
 .publications__likes {
     font-weight: 500;
+    font-size: 13px;
+}
+
+.publications__item-list {
+    margin-bottom: 10px;
+}
+
+.publications__item-list:last-of-type {
+    margin-bottom: 0;
 }
