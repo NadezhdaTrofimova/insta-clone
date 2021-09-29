@@ -11,6 +11,7 @@ import Subscribers from "./components/pages/Subscribers/Subscribers";
 function App() {
 
     const [userId, setUserId] = React.useState('');
+    const [isActivePreloader, setIsActivePreloader] = React.useState(true);
 
     const data = {
         email: '10@m.ru',
@@ -31,7 +32,10 @@ function App() {
     return (
         <Switch>
             <Route exact path='/'>
-                <MyAccount userId={userId}/>
+                <MyAccount
+                    userId={userId}
+                    setIsActivePreloader={setIsActivePreloader}
+                    isActivePreloader={isActivePreloader}/>
             </Route>
             <Route path='/publications'>
                 <Publications/>
