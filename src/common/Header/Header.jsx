@@ -29,7 +29,7 @@ const Header = ({userProfile}) => {
                 history.location.pathname === '/publications' &&
                 <>
                     <div className="header__publications-wrapper">
-                        <p className='header__publications-id-profile'>ggg32</p>
+                        <p className='header__publications-id-profile'>{userProfile._id}</p>
                         <h1 className='header__publications-title'>Публикации</h1>
                         <button className='header__publications-button'
                                 onClick={handleBackOnPage}/>

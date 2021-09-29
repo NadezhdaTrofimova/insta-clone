@@ -1,6 +1,14 @@
+import {useHistory} from "react-router-dom";
 import "./Profile.css"
 
 const Profile = ({userProfile}) => {
+
+    const history = useHistory();
+
+    const handleTransitionOnSubscribers = () => {
+        history.push('/subscribers')
+    }
+
     return (
         <section className='profile'>
             <div className='profile__wrapper'>
@@ -14,7 +22,7 @@ const Profile = ({userProfile}) => {
                             <h2 className="profile__item-number">16</h2>
                             <p className='profile__item-subtitle'>Публикации</p>
                         </li>
-                        <li className="profile__item-list">
+                        <li className="profile__item-list" onClick={handleTransitionOnSubscribers}>
                             <h2 className="profile__item-number">107</h2>
                             <p className='profile__item-subtitle'>Подписчики</p>
                         </li>

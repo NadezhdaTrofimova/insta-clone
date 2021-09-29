@@ -41,8 +41,20 @@ const getUserProfile = (userId) => {
         })
 }
 
+const getAllUsers = () => {
+    return firebase
+        .database()
+        .ref('users')
+        .once('value')
+        .then(data => data.val())
+        .catch((error) => {
+            showError(error)
+        })
+}
+
 export {
     login,
     getAllCards,
-    getUserProfile
+    getUserProfile,
+    getAllUsers
 }

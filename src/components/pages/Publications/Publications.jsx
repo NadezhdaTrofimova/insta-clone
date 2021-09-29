@@ -10,9 +10,10 @@ const Publications = () => {
 
     const history = useHistory();
 
+
     return (
         <>
-            <Header/>
+            <Header userProfile={history.location.state.userProfile}/>
             <section className='publications'>
                 <ul className="publications__unordered-list">
                     {history.location.state.cards.map((item) =>

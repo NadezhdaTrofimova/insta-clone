@@ -4,7 +4,7 @@ const CardItem = ({card, onOpenCard}) => {
 
 
     const handleOpenImage = () => {
-        onOpenCard('publications')
+        onOpenCard('/publications')
     }
 
     return (
