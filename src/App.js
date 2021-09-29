@@ -1,5 +1,5 @@
 import React from "react";
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, useHistory} from "react-router-dom";
 
 import './App.css';
 import * as api from './utils/api'
@@ -18,9 +18,12 @@ function App() {
         password: '123456789'
     }
 
+    const history = useHistory();
+
     const handleLogin = async ({email, password}) => {
         const userId = await api.login({email, password})
-        localStorage.setItem('userId', userId)
+        // localStorage.setItem('userId', userId)
+        history.push(`/${userId}`)
         setUserId(userId);
     }
 
@@ -31,12 +34,7 @@ function App() {
 
     return (
         <Switch>
-            <Route exact path='/'>
-                <MyAccount
-                    userId={userId}
-                    setIsActivePreloader={setIsActivePreloader}
-                    isActivePreloader={isActivePreloader}/>
-            </Route>
+
             <Route path='/publications'>
                 <Publications/>
             </Route>
@@ -44,6 +42,12 @@ function App() {
                 <Subscribers
                     userId={userId}
                 />
+            </Route>
+            <Route exact path='/:id'>
+                <MyAccount
+                    userId={userId}
+                    setIsActivePreloader={setIsActivePreloader}
+                    isActivePreloader={isActivePreloader}/>
             </Route>
         </Switch>
 

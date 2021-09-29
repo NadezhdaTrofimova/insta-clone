@@ -1,16 +1,12 @@
 .header {
-    background-color: #fff;
+    background: #fff;
     position: fixed;
     width: 100%;
-    max-width: 375px;
     z-index: 5;
+    max-width: 375px;
+    border-bottom: 1px solid rgba(190, 190, 190, 0.5);
 }
 
-.header__content {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-}
 
 .header__id-profile {
     font-size: 20px;
@@ -32,6 +28,14 @@
     background: no-repeat center/24px url("../../images/icon/icon-menu.svg");
 }
 
+.header__content {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 .header__publications-id-profile {
     font-size: 13px;
     font-weight: 700;
@@ -41,13 +45,15 @@
     text-align: center;
 }
 
-.header__publications-title {
+.header__publications-title,
+.header__subscribers-title {
     font-size: 15px;
     font-weight: 700;
     text-align: center;
 }
 
-.header__publications-button {
+.header__publications-button,
+.header__subscribers-button {
     top: 50%;
     left: 10px;
     width: 20px;
@@ -58,5 +64,5 @@
 }
 
 .header__publications-button {
-    padding: 5px 10px;
+    padding: 10px;
 }

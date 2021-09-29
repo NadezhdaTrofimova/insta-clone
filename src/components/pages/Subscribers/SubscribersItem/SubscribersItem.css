@@ -9,7 +9,7 @@
 .subscribers__item-list {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 45px 10px 0;
 }
 
 .subscribers__user-name {

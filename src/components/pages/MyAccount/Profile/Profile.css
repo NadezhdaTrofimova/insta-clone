@@ -1,5 +1,5 @@
 .profile {
-    padding: 50px 10px 10px;
+    padding: 55px 10px 10px;
 }
 
 .profile__wrapper {
@@ -36,6 +36,10 @@ profile__wrapper-image {
     align-items: center;
     justify-content: center;
     margin-right: 5px;
+}
+
+.profile__item-list:hover {
+    cursor: pointer;
 }
 
 .profile__item-list:last-of-type {

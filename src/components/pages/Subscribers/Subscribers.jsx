@@ -2,6 +2,7 @@ import React from "react";
 import * as api from '../../../utils/api';
 import './Subscribers.css'
 import SubscribersItem from "./SubscribersItem/SubscribersItem";
+import Header from "../../../common/Header/Header";
 
 const Subscribers = () => {
 
@@ -21,19 +22,22 @@ const Subscribers = () => {
     }, [])
 
     return (
-        <section className='subscribers'>
-            <ul className="subscribers__unordered-list">
-                {
-                    otherUsersId.map((id, index) =>
-                        <SubscribersItem
-                            id={id}
-                            key={index}
-                            userData={users[id]}
-                        />
-                    )
-                }
-            </ul>
-        </section>
+        <>
+            <Header/>
+            <section className='subscribers'>
+                <ul className="subscribers__unordered-list">
+                    {
+                        otherUsersId.map((id, index) =>
+                            <SubscribersItem
+                                id={id}
+                                key={index}
+                                userData={users[id]}
+                            />
+                        )
+                    }
+                </ul>
+            </section>
+        </>
     )
 }
 

@@ -36,6 +36,17 @@ const Header = ({userProfile}) => {
                     </div>
                 </>
             }
+            {
+                history.location.pathname === '/subscribers' &&
+                <>
+                    <div className="header__publications-wrapper">
+                        <p className="header__subscribers-title">Подписчики</p>
+                        <button
+                            className="header__subscribers-button"
+                            onClick={handleBackOnPage}/>
+                    </div>
+                </>
+            }
         </header>
     )
 }
