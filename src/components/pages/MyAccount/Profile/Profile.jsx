@@ -1,7 +1,12 @@
 import {useHistory} from "react-router-dom";
+import {useSelector} from "react-redux";
 import "./Profile.css"
 
-const Profile = ({userProfile}) => {
+
+
+const Profile = () => {
+
+    const currentUser = useSelector((state) => state.currentUser.value)
 
     const history = useHistory();
 
@@ -14,7 +19,7 @@ const Profile = ({userProfile}) => {
             <div className='profile__wrapper'>
                 <div className='profile__wrapper-image'>
                     <img className='profile__avatar' alt="аватар пользователя"
-                         src={userProfile.avatar}/>
+                         src={currentUser.avatar}/>
                 </div>
                 <div className='profile__public-info'>
                     <ul className='profile__unordered-list'>
@@ -34,7 +39,7 @@ const Profile = ({userProfile}) => {
                 </div>
             </div>
             <div className='profile__info'>
-                <h1 className="profile__name">{userProfile.name}</h1>
+                <h1 className="profile__name">{currentUser.name}</h1>
                 <p className="profile__signature">Москва</p>
             </div>
             <button className='profile__button-edit'>Редактировать</button>

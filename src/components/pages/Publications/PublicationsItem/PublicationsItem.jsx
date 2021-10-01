@@ -1,6 +1,11 @@
+import {useSelector} from "react-redux";
 import './PublicationsItem.css'
 
+
 const PublicationsItem = ({ card, userProfile }) => {
+
+    const currentUser = useSelector((state) => state.currentUser.value);
+
     return (
         <li className='publications__item-list'>
 
@@ -8,12 +13,12 @@ const PublicationsItem = ({ card, userProfile }) => {
 
                 <div className="publications__wrapper-image">
                     <img className="publications__avatar-image"
-                         src={userProfile.avatar}
+                         src={currentUser.avatar}
                          alt="Изображение аватара"/>
                 </div>
 
                 <div className="publications__wrapper-text">
-                    <p className="publications__id-profile">{userProfile._id}</p>
+                    <p className="publications__id-profile">{currentUser._id}</p>
                     <a className="publications__link-location" href="#1">Москва</a>
                 </div>
 

@@ -1,26 +1,24 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 import PublicationsItem from "./PublicationsItem/PublicationsItem";
 import Header from "../../../common/Header/Header";
-import './Publications.css'
+import './Publications.css';
 
 
 const Publications = () => {
 
-    const history = useHistory();
-
+    const currentUser = useSelector((state) => state.currentUser.value);
 
     return (
         <>
-            <Header userProfile={history.location.state.userProfile}/>
+            <Header/>
             <section className='publications'>
                 <ul className="publications__unordered-list">
-                    {history.location.state.cards.map((item) =>
+                    {currentUser.cards.map((item) =>
                         <PublicationsItem
                         key={item._id}
                         card={item}
-                        userProfile={history.location.state.userProfile}
                         />
                     )}
                 </ul>

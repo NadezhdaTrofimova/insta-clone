@@ -40,7 +40,7 @@ const store = configureStore({
         }).concat(logger)
 })
 
-const persistor = persistStore(store)
+const persistor = persistStore(store);
 
 export {
     persistor,

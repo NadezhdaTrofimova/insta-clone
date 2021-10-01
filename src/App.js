@@ -14,7 +14,7 @@ import {
 
 function App() {
 
-    const [userId, setUserId] = React.useState('');
+    const [myUserId, setMyUserId] = React.useState('');
     const [isActivePreloader, setIsActivePreloader] = React.useState(true);
 
     const dispatch = useDispatch();
@@ -28,10 +28,9 @@ function App() {
 
     const handleLogin = async ({email, password}) => {
         const userId = await api.login({email, password})
-        // localStorage.setItem('userId', userId)
-        dispatch(addLoggedInUser(userId))
-        history.push(`/${userId}`)
-        setUserId(userId);
+        dispatch(addLoggedInUser(userId));
+        history.push(`/${userId}`);
+        setMyUserId(myUserId);
     }
 
 
@@ -47,12 +46,12 @@ function App() {
             </Route>
             <Route path='/subscribers'>
                 <Subscribers
-                    userId={userId}
+                    myUserId={myUserId}
                 />
             </Route>
             <Route exact path='/:id'>
                 <MyAccount
-                    userId={userId}
+                    myUserId={myUserId}
                     setIsActivePreloader={setIsActivePreloader}
                     isActivePreloader={isActivePreloader}/>
             </Route>

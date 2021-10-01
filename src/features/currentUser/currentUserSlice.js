@@ -12,19 +12,11 @@ export const currentUserSlice = createSlice({
         addCurrentDataUser: (state, action) => {
             state.value = action.payload;
         },
-        addCard: (state, action) => {
-            state.value.cards = action.payload;
-        },
-        addDataUser: (state, action) => {
-            state.value = action.payload;
-        }
     }
 });
 
 export const {
     addCurrentDataUser,
-    addCard,
-    addDataUser
 } = currentUserSlice.actions;
 
 export default currentUserSlice.reducer

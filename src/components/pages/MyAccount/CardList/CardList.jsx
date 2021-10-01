@@ -1,22 +1,25 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
+import {useSelector} from "react-redux";
 import './CardList.css'
 import CardItem from "./CardItem/CardItem";
 
 
-const CardList = ({cards, userProfile}) => {
+
+const CardList = ({userProfile}) => {
 
     const history = useHistory();
 
+    const currentUser = useSelector((state) => state.currentUser.value);
 
     const handleOpenCard = (url) => {
-        history.push(url, { cards, userProfile })
+        history.push(url)
     }
 
     return (
         <section className='photo-cards'>
             <ul className='photo-cards__unordered-list'>
-                {cards.map((item) =>
+                {currentUser.cards.map((item) =>
                     <CardItem
                         key={item._id}
                         card={item}

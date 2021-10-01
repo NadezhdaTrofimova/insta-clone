@@ -6,7 +6,7 @@ import Header from "../../../common/Header/Header";
 
 const Subscribers = () => {
 
-    const userId = localStorage.getItem('userId');
+    const myUserId = localStorage.getItem('userId');
 
     const [otherUsersId, setOtherUsersId] = React.useState([]);
     const [users, setUsers] = React.useState([]);
@@ -14,7 +14,7 @@ const Subscribers = () => {
     const handleGetAllUsers = async () => {
         const allOtherUsers = await api.getAllUsers();
         setUsers(allOtherUsers);
-        setOtherUsersId(Object.keys(allOtherUsers).filter(item => item !== userId));
+        setOtherUsersId(Object.keys(allOtherUsers).filter(item => item !== myUserId));
     }
 
     React.useEffect(() => {
