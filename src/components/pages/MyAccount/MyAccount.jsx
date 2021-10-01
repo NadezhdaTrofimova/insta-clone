@@ -1,24 +1,34 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
 import Header from "../../../common/Header/Header";
 import Profile from "./Profile/Profile";
 import CardList from "./CardList/CardList";
 
 import * as api from '../../../utils/api';
 import Preloader from "../../../common/Preloader/Preloader";
+import {
+    addCard,
+    addDataUser
+} from "../../../features/currentUser/currentUserSlice";
 
 
 const MyAccount = ({userId, isActivePreloader, setIsActivePreloader}) => {
 
+    const myUserId = useSelector((state) => state.loggedInUser.value)
+    const currentUser = useSelector((state) => state.currentUser.value)
     const [cards, setCards] = React.useState([]);
     const [userProfile, setUserProfile] = React.useState([]);
     const history = useHistory();
-    const userId1 = history.location.pathname;
+    // const myUserId = history.location.pathname;
+
+    const dispatch = useDispatch();
 
     const handleGetAllCards = async (userId) => {
         setIsActivePreloader(true);
         const allCards = await api.getAllCards(userId);
         setCards(allCards);
+        dispatch(addCard(allCards))
         setIsActivePreloader(false);
     }
 
@@ -31,9 +41,9 @@ const MyAccount = ({userId, isActivePreloader, setIsActivePreloader}) => {
 
 
     React.useEffect(() => {
-            handleGetAllCards(userId1);
-            handleGetDataUser(userId1)
-    }, [userId1]);
+        handleGetAllCards(myUserId);
+        handleGetDataUser(myUserId)
+    }, [myUserId]);
 
     return (
         <>
@@ -42,6 +52,8 @@ const MyAccount = ({userId, isActivePreloader, setIsActivePreloader}) => {
                     <Preloader/> :
                     <>
                         <Header
+                            userId={userId}
+                            myUserId={myUserId}
                             userProfile={userProfile}
                         />
                         <Profile

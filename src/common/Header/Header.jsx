@@ -1,7 +1,10 @@
 import {useHistory} from "react-router-dom";
+import {useSelector} from "react-redux";
 import './Header.css'
 
-const Header = ({userProfile}) => {
+const Header = ({userProfile, myUserId}) => {
+
+    const userId = useSelector((state) => state.loggedInUser.value)
 
     const history = useHistory();
 
@@ -12,7 +15,7 @@ const Header = ({userProfile}) => {
     return (
         <header className='header'>
             {
-                history.location.pathname === '/' &&
+                history.location.pathname === `/${myUserId}` &&
                 <>
                     <div className='header__content'>
                         <p className='header__id-profile'>{userProfile._id}</p>
@@ -25,27 +28,41 @@ const Header = ({userProfile}) => {
                 </>
             }
 
-            {
-                history.location.pathname === '/publications' &&
-                <>
-                    <div className="header__publications-wrapper">
-                        <p className='header__publications-id-profile'>{userProfile._id}</p>
-                        <h1 className='header__publications-title'>Публикации</h1>
-                        <button className='header__publications-button'
-                                onClick={handleBackOnPage}/>
-                    </div>
-                </>
-            }
-            {
-                history.location.pathname === '/subscribers' &&
-                <>
-                    <div className="header__publications-wrapper">
+            {history.location.pathname !== `/${myUserId}` &&
+            <div className="header__publications-wrapper">
+
+                {
+                    history.location.pathname === userId &&
+                    `/${myUserId}` !== userId &&
+                    <>
+                        <p className="header__subscribers-id-profile">{userProfile._id}</p>
+                        <button
+                            className="header__subscribers-button"
+                            onClick={handleBackOnPage}/>
+                    </>
+                }
+
+                {
+                    history.location.pathname === '/subscribers' &&
+                    <>
                         <p className="header__subscribers-title">Подписчики</p>
                         <button
                             className="header__subscribers-button"
                             onClick={handleBackOnPage}/>
-                    </div>
-                </>
+                    </>
+                }
+
+                {
+                    history.location.pathname === '/publications' &&
+                    <>
+                        <p className='header__publications-id-profile'>{userProfile._id}</p>
+                        <h1 className='header__publications-title'>Публикации</h1>
+                        <button className='header__publications-button'
+                                onClick={handleBackOnPage}/>
+                    </>
+                }
+
+            </div>
             }
         </header>
     )

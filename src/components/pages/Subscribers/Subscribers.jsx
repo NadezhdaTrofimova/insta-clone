@@ -6,7 +6,7 @@ import Header from "../../../common/Header/Header";
 
 const Subscribers = () => {
 
-    const userId = localStorage.getItem('userId')
+    const userId = localStorage.getItem('userId');
 
     const [otherUsersId, setOtherUsersId] = React.useState([]);
     const [users, setUsers] = React.useState([]);

@@ -5,8 +5,11 @@
     z-index: 5;
     max-width: 375px;
     border-bottom: 1px solid rgba(190, 190, 190, 0.5);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 
 .header__id-profile {
     font-size: 20px;
@@ -29,14 +32,15 @@
 }
 
 .header__content {
+    width: 100%;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-
-.header__publications-id-profile {
+.header__publications-id-profile,
+.header__subscribers-id-profile {
     font-size: 13px;
     font-weight: 700;
     color: rgba(95, 93, 93, 0.7);
