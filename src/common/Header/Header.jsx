@@ -2,13 +2,13 @@ import {useHistory} from "react-router-dom";
 import {useSelector} from "react-redux";
 import './Header.css'
 
-const Header = ({userProfile, myUserId}) => {
-
-    const userId = useSelector((state) => state.loggedInUser.value)
-
-    const currentUser = useSelector((state) => state.currentUser.value)
+const Header = () => {
 
     const history = useHistory();
+
+    const myUserId = useSelector((state) => state.loggedInUser.value);
+    const currentUser = useSelector((state) => state.currentUser.value)
+
 
     const handleBackOnPage = () => {
         history.goBack();
@@ -17,7 +17,7 @@ const Header = ({userProfile, myUserId}) => {
     return (
         <header className='header'>
             {
-                history.location.pathname === `/${userId}` &&
+                history.location.pathname === `/${myUserId}` &&
                 <>
                     <div className="header__content">
                         <p className="header__id-profile">{currentUser._id}</p>
@@ -30,11 +30,11 @@ const Header = ({userProfile, myUserId}) => {
             }
 
 
-            {history.location.pathname !== `/${userId}` &&
+            {history.location.pathname !== `/${myUserId}` &&
             <div className="header__publications-wrapper">
 
-                {history.location.pathname === userId &&
-                `/${myUserId}` !== userId &&
+                {history.location.pathname === currentUser.userId &&
+                `/${myUserId}` !== currentUser.userId &&
                 <>
                     <p className="header__subscribers-id-profile">{currentUser._id}</p>
                     <button className="header__subscribers-button"

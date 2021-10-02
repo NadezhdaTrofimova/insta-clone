@@ -1,10 +1,22 @@
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import * as api from './../../../../utils/api'
 import './PublicationsItem.css'
 
+import {
+    updateLikeOfCard
+} from '../../../../features/currentUser/currentUserSlice'
 
-const PublicationsItem = ({ card, userProfile }) => {
+
+const PublicationsItem = ({ card }) => {
+
+    const dispatch = useDispatch();
 
     const currentUser = useSelector((state) => state.currentUser.value);
+
+    const handleLikeChange = async () => {
+        await api.updateNumberOfLikes(card, currentUser.userId, card.likes + 1)
+        dispatch(updateLikeOfCard(card))
+    }
 
     return (
         <li className='publications__item-list'>
@@ -33,7 +45,9 @@ const PublicationsItem = ({ card, userProfile }) => {
             <div className="publications__wrapper-bottom">
                 <div className="publications__wrapper-button">
                     <div className="publications__wrapper-left-button">
-                        <button className="publications__button publications__button-like"/>
+                        <button
+                            className="publications__button publications__button-like"
+                            onClick={handleLikeChange}/>
                         <button className="publications__button publications__button-comment"/>
                         <button className="publications__button publications__button-send"/>
                     </div>

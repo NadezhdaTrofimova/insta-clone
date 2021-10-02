@@ -1,20 +1,23 @@
 import React from "react";
+import {useSelector} from "react-redux";
 import * as api from '../../../utils/api';
+
 import './Subscribers.css'
 import SubscribersItem from "./SubscribersItem/SubscribersItem";
 import Header from "../../../common/Header/Header";
 
+
 const Subscribers = () => {
 
-    const myUserId = localStorage.getItem('userId');
+    const myUserId = useSelector((state) => state.loggedInUser.value);
 
     const [otherUsersId, setOtherUsersId] = React.useState([]);
     const [users, setUsers] = React.useState([]);
 
     const handleGetAllUsers = async () => {
-        const allOtherUsers = await api.getAllUsers();
-        setUsers(allOtherUsers);
-        setOtherUsersId(Object.keys(allOtherUsers).filter(item => item !== myUserId));
+        const allUsers = await api.getAllUsers();
+        setUsers(allUsers);
+        setOtherUsersId(Object.keys(allUsers).filter(item => item !== myUserId));
     }
 
     React.useEffect(() => {
