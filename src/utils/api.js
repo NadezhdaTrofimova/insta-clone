@@ -52,11 +52,43 @@ const updateNumberOfLikes = (card, userId, currentNumberOfLikes) => {
         })
 }
 
+const addCard = (
+    link,
+    textLocation,
+    textDescription,
+    cards,
+    myUserId
+) => {
+    return firebase
+        .database()
+        .ref(`users/${myUserId}/cards/${cards.length}`)
+        .set({
+            _id: cards.length,
+            link,
+            textLocation,
+            textDescription,
+            likes: 0
+        })
+        .then(() => {
+            return firebase
+                .database()
+                .ref(`users/${myUserId}/cards/${cards.length}`)
+                .once('value')
+                .then(data => data.val())
+                .catch((error) => {
+                    showError(error)
+                })
+        })
+        .catch((error) => {
+            showError(error)
+        })
+}
+
 
 export {
     login,
-    // getAllCards,
     getUserProfile,
     getAllUsers,
     updateNumberOfLikes,
+    addCard,
 }

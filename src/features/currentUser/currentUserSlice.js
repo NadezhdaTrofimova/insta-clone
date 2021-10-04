@@ -19,6 +19,9 @@ export const currentUserSlice = createSlice({
             state.value.cards = state.value.cards.map(item => item._id === action.payload._id
                 ? {...item, likes: item.likes + 1} : item
             )
+        },
+        addNewCard: (state, action) => {
+            state.value.cards.push(action.payload)
         }
     }
 });
@@ -27,6 +30,7 @@ export const {
     addCurrentDataUser,
     addCurrentUserId,
     updateLikeOfCard,
+    addNewCard,
 } = currentUserSlice.actions;
 
 export default currentUserSlice.reducer

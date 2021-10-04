@@ -2,7 +2,7 @@ import {useHistory} from "react-router-dom";
 import {useSelector} from "react-redux";
 import './Header.css'
 
-const Header = () => {
+const Header = ({handleShowPopup}) => {
 
     const history = useHistory();
 
@@ -22,7 +22,10 @@ const Header = () => {
                     <div className="header__content">
                         <p className="header__id-profile">{currentUser._id}</p>
                         <div className="header__button-wrapper">
-                            <button className="header__button header__button-add-card"/>
+                            <button
+                                className="header__button header__button-add-card"
+                                onClick={handleShowPopup}
+                            />
                             <button className="header__button header__button-menu"/>
                         </div>
                     </div>
