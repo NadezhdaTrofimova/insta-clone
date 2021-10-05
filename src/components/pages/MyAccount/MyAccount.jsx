@@ -14,6 +14,7 @@ import {
     addCurrentUserId,
     addNewCard,
 } from "../../../features/currentUser/currentUserSlice";
+import Navigation from "./Navigation/Navigation";
 
 
 const MyAccount = ({isActivePreloader, setIsActivePreloader}) => {
@@ -27,9 +28,16 @@ const MyAccount = ({isActivePreloader, setIsActivePreloader}) => {
     const cards = useSelector((state) => state.currentUser.value).cards;
 
     const [isOpenPopupCreateCard, setIsOpenPopupCreateCard] = React.useState(false)
+    const [isOpenMenuNavigation, setIsOpenMenuNavigation] = React.useState(false)
+
 
     const handleShowPopup = () => {
         setIsOpenPopupCreateCard(!isOpenPopupCreateCard);
+        document.body.classList.toggle('page_lock')
+    }
+
+    const handleShowMenu = () => {
+        setIsOpenMenuNavigation(!isOpenMenuNavigation);
         document.body.classList.toggle('page_lock')
     }
 
@@ -70,15 +78,21 @@ const MyAccount = ({isActivePreloader, setIsActivePreloader}) => {
                     <Preloader/> :
                     <>
                         <Header
+                            handleShowMenu={handleShowMenu}
                             handleShowPopup={handleShowPopup}
                         />
                         <Profile/>
                         <CardList/>
+                        <Navigation
+                            handleShowMenu={handleShowMenu}
+                            isOpenMenuNavigation={isOpenMenuNavigation}
+                        />
                         <PopupCreateCard
                             handleAddCard={handleAddCard}
                             handleShowPopup={handleShowPopup}
                             isOpenPopupCreateCard={isOpenPopupCreateCard}
                         />
+
                     </>
             }
         </>

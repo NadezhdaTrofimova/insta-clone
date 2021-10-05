@@ -2,7 +2,7 @@
     background: #fff;
     position: fixed;
     width: 100%;
-    z-index: 5;
+    z-index: 2;
     max-width: 375px;
     border-bottom: 1px solid rgba(190, 190, 190, 0.5);
     height: 40px;

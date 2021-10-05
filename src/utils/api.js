@@ -84,6 +84,17 @@ const addCard = (
         })
 }
 
+const signOut = () => {
+    return firebase
+        .auth()
+        .signOut()
+        .then(() => {
+            console.log('Вы вышли из аккаунта');
+        })
+        .catch((error) => {
+            showError(error)
+        })
+}
 
 export {
     login,
@@ -91,4 +102,5 @@ export {
     getAllUsers,
     updateNumberOfLikes,
     addCard,
+    signOut,
 }

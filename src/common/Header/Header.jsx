@@ -2,7 +2,7 @@ import {useHistory} from "react-router-dom";
 import {useSelector} from "react-redux";
 import './Header.css'
 
-const Header = ({handleShowPopup}) => {
+const Header = ({handleShowPopup, handleShowMenu}) => {
 
     const history = useHistory();
 
@@ -26,7 +26,9 @@ const Header = ({handleShowPopup}) => {
                                 className="header__button header__button-add-card"
                                 onClick={handleShowPopup}
                             />
-                            <button className="header__button header__button-menu"/>
+                            <button className="header__button header__button-menu"
+                                    onClick={handleShowMenu}
+                            />
                         </div>
                     </div>
                 </>
