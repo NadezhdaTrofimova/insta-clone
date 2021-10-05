@@ -7,10 +7,13 @@ import * as api from './utils/api'
 import Publications from "./components/pages/Publications/Publications";
 import MyAccount from "./components/pages/MyAccount/MyAccount";
 import Subscribers from "./components/pages/Subscribers/Subscribers";
+import Login from "./components/pages/Login/Login";
 
 import {
     addLoggedInUser
 } from "./features/loggedInUser/loggedInUserSlice";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+
 
 function App() {
 
@@ -33,24 +36,32 @@ function App() {
 
 
     React.useEffect(() => {
-        handleLogin(data);
+        // handleLogin(data);
     }, [])
 
     return (
         <Switch>
-
-            <Route path='/publications'>
-                <Publications/>
-            </Route>
-            <Route path='/subscribers'>
-                <Subscribers/>
-            </Route>
-            <Route exact path='/:id'>
-                <MyAccount
-                    setIsActivePreloader={setIsActivePreloader}
-                    isActivePreloader={isActivePreloader}
+            <Route path='/signin'>
+                <Login
+                    handleLogin={handleLogin}
                 />
             </Route>
+
+            <ProtectedRoute
+                path='/publications'
+                component={Publications}
+            />
+
+            <ProtectedRoute
+                path='/subscribers'
+                component={Subscribers}
+            />
+
+            <ProtectedRoute exact path='/:id'
+                            component={MyAccount}
+                            setIsActivePreloader={setIsActivePreloader}
+                            isActivePreloader={isActivePreloader}
+            />
         </Switch>
     );
 }

@@ -21,7 +21,7 @@ const Navigation = ({isOpenMenuNavigation, handleShowMenu}) => {
     const handleSignOut = () => {
         persistor.purge();
         api.signOut();
-        history.push('/ddd')
+        history.push('/signin')
     }
 
 
