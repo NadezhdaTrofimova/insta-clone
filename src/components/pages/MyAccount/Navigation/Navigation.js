@@ -22,6 +22,7 @@ const Navigation = ({isOpenMenuNavigation, handleShowMenu}) => {
         persistor.purge();
         api.signOut();
         history.push('/signin')
+        document.body.classList.remove('page_lock')
     }
 
 
